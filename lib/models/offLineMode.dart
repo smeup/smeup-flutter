@@ -1,0 +1,4 @@
+enum OfflineModes {
+  time,
+  online
+}
