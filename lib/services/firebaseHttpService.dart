@@ -16,6 +16,7 @@ class FirebaseHttpService {
   Future<HttpProductsResponse> getProducts() async {
     String url = MyApp.smeupSettings.firebaseUrl + '/products.json';
     return http.get(url)
+    .timeout(MyApp.smeupSettings.connectionTimeout)
     .then((http.Response response) {
       return HttpProductsResponse(response.body, response.statusCode == 200);
       }).catchError((e) {

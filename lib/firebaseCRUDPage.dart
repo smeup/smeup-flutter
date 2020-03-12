@@ -7,6 +7,7 @@ import 'package:smeup_flutter/models/firebaseProduct.dart';
 import 'package:smeup_flutter/services/firebaseHttpService.dart';
 
 import 'customWidgets/firebase/userProductItem.dart';
+import 'customWidgets/wrappers/myLabel.dart';
 
 class FirebaseCRUDPage extends StatefulWidget {
 
@@ -51,7 +52,10 @@ class _UserProductsScreen extends State<FirebaseCRUDPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Your Products'),
+        title: MyLabel(
+          widget.title,
+          18,
+        ),
         actions: <Widget>[
           IconButton(
             icon: const Icon(Icons.add),
