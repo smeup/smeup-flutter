@@ -5,6 +5,7 @@ import 'package:smeup_flutter/utilitiesPage.dart';
 
 import 'customWidgets/wrappers/myBottomBar.dart';
 import 'customWidgets/wrappers/myLabel.dart';
+import 'firebaseCRUDPage.dart';
 import 'models/smeupBottomBarSettings.dart';
 
 class HomePage extends StatefulWidget {
@@ -74,6 +75,20 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
                 strokeColor: Colors.blue,
+                strokeWidth: 50,
+                paintingStyle: PaintingStyle.fill),
+
+            MyCustomButton(
+                buttonText: 'FIREBASE CRUD',
+                buttonClickHandler: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FirebaseCRUDPage(
+                            title: 'Smeup Flutter - Firebase CRUD')),
+                  );
+                },
+                strokeColor: Colors.green,
                 strokeWidth: 50,
                 paintingStyle: PaintingStyle.fill),
 
