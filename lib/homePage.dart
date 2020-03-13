@@ -5,7 +5,7 @@ import 'package:smeup_flutter/utilitiesPage.dart';
 
 import 'customWidgets/wrappers/myBottomBar.dart';
 import 'customWidgets/wrappers/myLabel.dart';
-import 'firebaseCRUDPage.dart';
+import 'firebaseListPage.dart';
 import 'models/smeupBottomBarSettings.dart';
 
 class HomePage extends StatefulWidget {
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FirebaseCRUDPage(
+                        builder: (context) => FirebaseListPage(
                             title: 'Smeup Flutter - Firebase CRUD')),
                   );
                 },

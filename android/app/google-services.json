@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "75166810650",
+    "firebase_url": "https://smeupflutter.firebaseio.com",
+    "project_id": "smeupflutter",
+    "storage_bucket": "smeupflutter.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:75166810650:android:625bae1f10569890b607a3",
+        "android_client_info": {
+          "package_name": "com.smeup.flutter_prototype"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "75166810650-l4m51d7c6c5i7h7lauu9cq884vn6ftk0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXbJVBNBIkaB2yAYJjm6-PFvZ5tJlLmQo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "75166810650-l4m51d7c6c5i7h7lauu9cq884vn6ftk0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

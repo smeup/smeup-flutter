@@ -1,4 +1,3 @@
-import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:smeup_flutter/homePage.dart';
@@ -6,22 +5,21 @@ import 'package:smeup_flutter/main.dart';
 import 'package:smeup_flutter/models/firebaseProduct.dart';
 import 'package:smeup_flutter/services/firebaseHttpService.dart';
 
-import 'customWidgets/firebase/userProductItem.dart';
+import 'customWidgets/firebase/firebaseListItem.dart';
 import 'customWidgets/wrappers/myLabel.dart';
+import 'firebaseEditPage.dart';
 
-class FirebaseCRUDPage extends StatefulWidget {
+class FirebaseListPage extends StatefulWidget {
 
   final String title;
-  FirebaseCRUDPage({Key key, this.title}) : super(key: key);
+  FirebaseListPage({Key key, this.title}) : super(key: key);
 
   @override
   _UserProductsScreen createState() => _UserProductsScreen();
 }
 
-class _UserProductsScreen extends State<FirebaseCRUDPage> {
-  static const routeName = '/user-products';
-
-
+class _UserProductsScreen extends State<FirebaseListPage> {
+  
   @override
   Widget build(BuildContext context) {
 
@@ -45,10 +43,12 @@ class _UserProductsScreen extends State<FirebaseCRUDPage> {
   Future<Widget> getWidget() async {
     HttpProductsResponse response = await MyApp.firebaseHttpService.getProducts();
     
-    List<Product> productsData = new List<Product>(); 
+    List<FirebaseProduct> productsData = new List<FirebaseProduct>(); 
     
-    if(!response.isError)
-      productsData = json.decode(response.data);
+    if(!response.isError && response.data != 'null') {
+      productsData = FirebaseProduct.fromJsonList(response.data);
+    }
+      
 
     return Scaffold(
       appBar: AppBar(
@@ -60,7 +60,11 @@ class _UserProductsScreen extends State<FirebaseCRUDPage> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              //Navigator.of(context).pushNamed(EditProductScreen.routeName);
+              Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FirebaseEditPage( new FirebaseProduct(id: null, title: null, description: null, price: 0) )),
+                  );
             },
           ),
         ],
@@ -72,9 +76,11 @@ class _UserProductsScreen extends State<FirebaseCRUDPage> {
           itemCount: productsData.length,
           itemBuilder: (_, i) => Column(
                 children: [
-                  UserProductItem(
+                  FirebaseListItem(
                     productsData[i].id,
                     productsData[i].title,
+                    productsData[i].description,
+                    productsData[i].price,
                     //productsData[i].imageUrl,
                   ),
                   Divider(),
