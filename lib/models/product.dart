@@ -1,11 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'dart:convert';
 
 class Product with ChangeNotifier {
-  final String id;
-  final String title;
-  final String description;
-  final double price;
+  String id;
+  String title;
+  String description;
+  double price;
   bool isFavorite;
 
   Product({
@@ -39,4 +40,29 @@ class Product with ChangeNotifier {
       'isFavorite': product.isFavorite,
     });
   }
+
+  static List<Product> fromMapList(QuerySnapshot snapshot) {
+    List<Product> products = new List<Product>();
+    List<DocumentSnapshot> documents = snapshot.documents;
+    documents.forEach( (document) {
+        Product product = Product(id: document.documentID, title: document.data['title'], description: document.data['description'], price: document.data['price'], isFavorite: document.data['isFavorite']);
+        products.add(product);
+    });
+    return products;
+  }
+
+  // convenience method to create a Map from this Word object
+  Map<String, dynamic> toMap() {
+    var map = <String, dynamic>{
+      'title': this.title,
+      'description': this.description,
+      'price': this.price,
+      'isFavorite': this.isFavorite
+    };
+    if (id != null) {
+      map['id'] = id;
+    }
+    return map;
+  }
+
 }

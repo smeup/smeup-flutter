@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smeup_flutter/customWidgets/wrappers/myCustomButton.dart';
+import 'package:smeup_flutter/firebaseListSyncPage.dart';
 import 'package:smeup_flutter/smeupFormsPage.dart';
 import 'package:smeup_flutter/utilitiesPage.dart';
 
@@ -44,7 +45,7 @@ class _HomePageState extends State<HomePage> {
                             isOffline: false,)),
                   );
                 },
-                strokeColor: Colors.red,
+                strokeColor: Colors.yellow,
                 strokeWidth: 50,
                 paintingStyle: PaintingStyle.fill),
 
@@ -86,6 +87,20 @@ class _HomePageState extends State<HomePage> {
                     MaterialPageRoute(
                         builder: (context) => FirebaseListPage(
                             title: 'Smeup Flutter - Firebase CRUD')),
+                  );
+                },
+                strokeColor: Colors.green,
+                strokeWidth: 50,
+                paintingStyle: PaintingStyle.fill),
+
+            MyCustomButton(
+                buttonText: 'FIREBASE SYNC',
+                buttonClickHandler: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => FirebaseListSyncPage(
+                            title: 'Smeup Flutter - Firebase SYNC')),
                   );
                 },
                 strokeColor: Colors.green,

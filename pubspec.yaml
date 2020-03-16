@@ -63,6 +63,11 @@ dependencies:
   cupertino_icons: ^0.1.3
   http: ^0.12.0+4
 
+  # Firebase: offline and synchronization (Realtime database)
+  firebase_database: ^3.1.3
+  # Firebase: offline and synchronization (Cloud Firestore)
+  cloud_firestore: ^0.13.4+2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

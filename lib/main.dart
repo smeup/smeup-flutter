@@ -1,4 +1,6 @@
 import 'package:camera/camera.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_database/firebase_database.dart';
 //import 'package:file_cache/file_cache.dart';
 import 'package:flutter/material.dart';
 import 'package:smeup_flutter/models/offLineMode.dart';
@@ -14,7 +16,13 @@ Future<void> main() async {
   // Fetch the available cameras before initializing the app.
   try {
     WidgetsFlutterBinding.ensureInitialized();
+    
     MyApp.cameras = await availableCameras();
+
+    MyApp.fsCloudDb.settings(persistenceEnabled: true).timeout(MyApp.smeupSettings.connectionTimeout);
+
+    
+
   } on CameraException catch (e) {
     print('Error: ${e.code}\nError Message: ${e.description}');
   }
@@ -53,6 +61,10 @@ class MyApp extends StatelessWidget {
 
   // list of device cameras
   static List<CameraDescription> cameras = [];
+
+  // Firebase Cloud Database Reference
+  static final fbCloudDb = FirebaseDatabase.instance.reference();
+  static final fsCloudDb = Firestore.instance;
 
   
   // This widget is the root of your application.
