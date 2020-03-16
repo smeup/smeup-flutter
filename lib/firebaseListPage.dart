@@ -12,7 +12,8 @@ import 'firebaseEditPage.dart';
 class FirebaseListPage extends StatefulWidget {
 
   final String title;
-  FirebaseListPage({Key key, this.title}) : super(key: key);
+  final bool isFireStore;
+  FirebaseListPage({Key key, this.title, this.isFireStore}) : super(key: key);
 
   @override
   _UserProductsScreen createState() => _UserProductsScreen();
@@ -40,15 +41,20 @@ class _UserProductsScreen extends State<FirebaseListPage> {
   }
 
   Future<Widget> getWidget() async {
-    HttpProductsResponse response = await MyApp.firebaseHttpService.getProducts();
-    
     List<Product> productsData = new List<Product>(); 
-    
-    if(!response.isError && response.data != 'null') {
-      productsData = Product.fromJsonList(response.data);
+
+    if(widget.isFireStore) {
+      HttpProductsResponseSync response = await MyApp.firebaseHttpService.getProductsSync();
+        if(!response.isError && response.data != null) {
+        productsData = Product.fromMapList(response.data);
+      }
+    } else {
+      HttpProductsResponse response = await MyApp.firebaseHttpService.getProducts();
+      if(!response.isError && response.data != 'null') {
+        productsData = Product.fromJsonList(response.data);
+      }
     }
       
-
     return Scaffold(
       appBar: AppBar(
         title: MyLabel(
@@ -62,8 +68,8 @@ class _UserProductsScreen extends State<FirebaseListPage> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FirebaseEditPage( new Product(id: null, title: null, description: null, price: 0) )),
-                  );
+                        builder: (context) => FirebaseEditPage( new Product(id: null, title: null, description: null, price: 0), widget.isFireStore) ),
+              );
             },
           ),
         ],
@@ -80,6 +86,7 @@ class _UserProductsScreen extends State<FirebaseListPage> {
                     productsData[i].title,
                     productsData[i].description,
                     productsData[i].price,
+                    widget.isFireStore
                   ),
                   Divider(),
                 ],

@@ -6,8 +6,8 @@ import 'package:smeup_flutter/services/firebaseHttpService.dart';
 class FirebaseEditPage extends StatefulWidget {
 
   final Product _initValues; 
-
-  FirebaseEditPage(this._initValues);
+  final bool isFireStore;
+  FirebaseEditPage(this._initValues, this.isFireStore);
 
   @override
   _FirebaseEditPageState createState() => _FirebaseEditPageState();
@@ -43,17 +43,30 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
     if (!isValid) {
       return;
     }
-    _form.currentState.save();
-    if (_editedProduct.id != null) {
-      HttpProductsResponse response = await MyApp.firebaseHttpService.patchProducts(_editedProduct);
-      if(!response.isError)
-        Navigator.of(context).pop();
-    } else {
-      HttpProductsResponse response = await MyApp.firebaseHttpService.postProducts(_editedProduct);
-      if(!response.isError)
-        Navigator.of(context).pop();
-    }
     
+    _form.currentState.save();
+
+    if(widget.isFireStore) {
+      if (_editedProduct.id != null) {
+        HttpProductsResponseSync response = await MyApp.firebaseHttpService.patchProductsSync(_editedProduct);
+        if(!response.isError)
+          Navigator.of(context).pop();
+      } else {
+        HttpProductsResponseSync response = await MyApp.firebaseHttpService.postProductsSync(_editedProduct);
+        if(!response.isError)
+          Navigator.of(context).pop();
+      }
+    } else {
+      if (_editedProduct.id != null) {
+        HttpProductsResponse response = await MyApp.firebaseHttpService.patchProducts(_editedProduct);
+        if(!response.isError)
+          Navigator.of(context).pop();
+      } else {
+        HttpProductsResponse response = await MyApp.firebaseHttpService.postProducts(_editedProduct);
+        if(!response.isError)
+          Navigator.of(context).pop();
+      }
+    }
   }
 
   @override

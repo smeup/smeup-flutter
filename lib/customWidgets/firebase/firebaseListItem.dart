@@ -10,9 +10,9 @@ class FirebaseListItem extends StatelessWidget {
   final String title;
   final String description;
   final double price;
-  
+  final bool isFireStore;
 
-  FirebaseListItem(this.id, this.title, this.description, this.price);
+  FirebaseListItem(this.id, this.title, this.description, this.price, this.isFireStore);
 
   @override
   Widget build(BuildContext context) {
@@ -26,22 +26,33 @@ class FirebaseListItem extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.edit),
               onPressed: () {
+
                 Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => FirebaseEditPage( Product(title: title, id: id, description: description, price: price) )),
-                  );
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => FirebaseEditPage( Product(title: title, id: id, description: description, price: price), isFireStore )),
+                    ); 
               },
               color: Theme.of(context).primaryColor,
             ),
             IconButton(
               icon: Icon(Icons.delete),
               onPressed: () {
-                MyApp.firebaseHttpService.deleteProducts(Product(title: title, id: id, description: description, price: price)).then((_) {
+                
+                if(isFireStore) {
+                  MyApp.firebaseHttpService.deleteProductsSync(Product(title: title, id: id, description: description, price: price)).then((_) {
                   Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) => FirebaseListPage(
-                            title: 'Smeup Flutter - Firebase CRUD')));
-                });
+                            title: 'Firebase ONLINE')));
+                  });
+                } else {
+                  MyApp.firebaseHttpService.deleteProducts(Product(title: title, id: id, description: description, price: price)).then((_) {
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                        builder: (context) => FirebaseListPage(
+                            title: 'Firebase OFFLINE')));
+                  });
+                }
+                
               },
               color: Theme.of(context).errorColor,
             ),

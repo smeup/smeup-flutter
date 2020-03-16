@@ -17,6 +17,9 @@ class HttpProductsResponseSync {
 }
 
 class FirebaseHttpService {
+
+  /// ONLINE METHODS
+  /// 
   Future<HttpProductsResponse> getProducts() async {
     String url = MyApp.smeupSettings.firebaseUrl + 'products.json';
     return http.get(url).then((http.Response response) {
@@ -53,37 +56,58 @@ class FirebaseHttpService {
     });
   }
 
+  /// OFFLINE METHODS
+  /// 
   Future<HttpProductsResponseSync> getProductsSync() async {
-    return MyApp.fsCloudDb
+    QuerySnapshot snapshot;
+    try {
+      snapshot = await MyApp.fsCloudDb
         .collection("products")
-        .getDocuments()
-        .then((QuerySnapshot snapshot) {
-      return HttpProductsResponseSync(snapshot, false);
-    }).catchError((e) {
-      return HttpProductsResponseSync(null, true);
-    });
+        .getDocuments();  
+    } catch (e) {
+      print(e);
+    }
+    return HttpProductsResponseSync(snapshot, false);
   }
 
   Future<HttpProductsResponseSync> postProductsSync(Product product) async {
-    await MyApp.fsCloudDb
-        .collection('products')
-        .add(product.toMap());
+
+    try {
+      await MyApp.fsCloudDb
+          .collection('products')
+          .add(product.toMap());  
+    } catch (e) {
+      print(e);
+    }
+    
     return HttpProductsResponseSync(null, false);
   }
 
   Future<HttpProductsResponseSync> deleteProductsSync(Product product) async {
-    await MyApp.fsCloudDb
-        .collection('products')
-        .document(product.id)
-        .delete();
+
+    try {
+      await MyApp.fsCloudDb
+          .collection('products')
+          .document(product.id)
+          .delete();  
+    } catch (e) {
+      print(e);
+    }
+    
     return HttpProductsResponseSync(null, false);
   }
 
   Future<HttpProductsResponseSync> patchProductsSync(Product product) async {
-    await MyApp.fsCloudDb
+
+    try {
+      await MyApp.fsCloudDb
         .collection('products')
         .document(product.id)
-        .updateData(product.toMap());
+        .updateData(product.toMap());  
+    } catch (e) {
+      print(e);
+    }
+    
     return HttpProductsResponseSync(null, false);
   }
 

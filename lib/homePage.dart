@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:smeup_flutter/customWidgets/wrappers/myCustomButton.dart';
-import 'package:smeup_flutter/firebaseListSyncPage.dart';
 import 'package:smeup_flutter/smeupFormsPage.dart';
 import 'package:smeup_flutter/utilitiesPage.dart';
 
@@ -80,13 +79,14 @@ class _HomePageState extends State<HomePage> {
                 paintingStyle: PaintingStyle.fill),
 
             MyCustomButton(
-                buttonText: 'FIREBASE CRUD',
+                buttonText: 'FIREBASE ONLINE',
                 buttonClickHandler: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) => FirebaseListPage(
-                            title: 'Smeup Flutter - Firebase CRUD')),
+                            title: 'Firebase ONLINE',
+                            isFireStore: false,)),
                   );
                 },
                 strokeColor: Colors.green,
@@ -94,13 +94,14 @@ class _HomePageState extends State<HomePage> {
                 paintingStyle: PaintingStyle.fill),
 
             MyCustomButton(
-                buttonText: 'FIREBASE SYNC',
+                buttonText: 'FIREBASE OFFLINE',
                 buttonClickHandler: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FirebaseListSyncPage(
-                            title: 'Smeup Flutter - Firebase SYNC')),
+                        builder: (context) => FirebaseListPage(
+                            title: 'Firebase OFFLINE',
+                            isFireStore: true)),
                   );
                 },
                 strokeColor: Colors.green,
