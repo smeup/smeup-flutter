@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:smeup_flutter/homePage.dart';
 import 'package:smeup_flutter/main.dart';
-import 'package:smeup_flutter/models/firebaseProduct.dart';
+import 'package:smeup_flutter/models/product.dart';
 import 'package:smeup_flutter/services/firebaseHttpService.dart';
 
 import 'customWidgets/firebase/firebaseListItem.dart';
@@ -31,7 +31,6 @@ class _UserProductsScreen extends State<FirebaseListPage> {
           return Center(child: Text('Please wait its loading...'));
         } else {
           if (snapshot.hasError)
-            //return Center(child: Text('Error: ${snapshot.error}'));
             return Center(child: snapshot.data);
           else
             return Center(child: snapshot.data);
@@ -43,10 +42,10 @@ class _UserProductsScreen extends State<FirebaseListPage> {
   Future<Widget> getWidget() async {
     HttpProductsResponse response = await MyApp.firebaseHttpService.getProducts();
     
-    List<FirebaseProduct> productsData = new List<FirebaseProduct>(); 
+    List<Product> productsData = new List<Product>(); 
     
     if(!response.isError && response.data != 'null') {
-      productsData = FirebaseProduct.fromJsonList(response.data);
+      productsData = Product.fromJsonList(response.data);
     }
       
 
@@ -63,7 +62,7 @@ class _UserProductsScreen extends State<FirebaseListPage> {
               Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FirebaseEditPage( new FirebaseProduct(id: null, title: null, description: null, price: 0) )),
+                        builder: (context) => FirebaseEditPage( new Product(id: null, title: null, description: null, price: 0) )),
                   );
             },
           ),
@@ -81,7 +80,6 @@ class _UserProductsScreen extends State<FirebaseListPage> {
                     productsData[i].title,
                     productsData[i].description,
                     productsData[i].price,
-                    //productsData[i].imageUrl,
                   ),
                   Divider(),
                 ],

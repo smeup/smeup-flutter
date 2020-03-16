@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:smeup_flutter/main.dart';
-import 'models/firebaseProduct.dart';
+import 'models/product.dart';
 import 'package:smeup_flutter/services/firebaseHttpService.dart';
 
 class FirebaseEditPage extends StatefulWidget {
 
-  final FirebaseProduct _initValues; 
+  final Product _initValues; 
 
   FirebaseEditPage(this._initValues);
 
@@ -17,7 +17,7 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
   final _priceFocusNode = FocusNode();
   final _descriptionFocusNode = FocusNode();
   final _form = GlobalKey<FormState>();
-  var _editedProduct = FirebaseProduct(
+  var _editedProduct = Product(
     id: null,
     title: '',
     price: 0,
@@ -26,7 +26,7 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
 
   @override
   void initState() {
-    _editedProduct = FirebaseProduct(id: widget._initValues.id, title: widget._initValues.title, description: widget._initValues.description, price: widget._initValues.price);
+    _editedProduct = Product(id: widget._initValues.id, title: widget._initValues.title, description: widget._initValues.description, price: widget._initValues.price);
 
     super.initState();
   }
@@ -49,7 +49,6 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
       if(!response.isError)
         Navigator.of(context).pop();
     } else {
-      //Provider.of<Products>(context, listen: false).addProduct(_editedProduct);
       HttpProductsResponse response = await MyApp.firebaseHttpService.postProducts(_editedProduct);
       if(!response.isError)
         Navigator.of(context).pop();
@@ -89,7 +88,7 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
                   return null;
                 },
                 onSaved: (value) {
-                  _editedProduct = FirebaseProduct(
+                  _editedProduct = Product(
                       title: value,
                       price: _editedProduct.price,
                       description: _editedProduct.description,
@@ -119,7 +118,7 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
                   return null;
                 },
                 onSaved: (value) {
-                  _editedProduct = FirebaseProduct(
+                  _editedProduct = Product(
                       title: _editedProduct.title,
                       price: double.parse(value),
                       description: _editedProduct.description,
@@ -143,7 +142,7 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
                   return null;
                 },
                 onSaved: (value) {
-                  _editedProduct = FirebaseProduct(
+                  _editedProduct = Product(
                     title: _editedProduct.title,
                     price: _editedProduct.price,
                     description: value,

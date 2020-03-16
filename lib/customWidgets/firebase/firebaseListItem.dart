@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:smeup_flutter/firebaseEditPage.dart';
-import 'package:smeup_flutter/models/firebaseProduct.dart';
+import 'package:smeup_flutter/models/product.dart';
 
 import '../../firebaseListPage.dart';
 import '../../main.dart';
@@ -29,7 +29,7 @@ class FirebaseListItem extends StatelessWidget {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => FirebaseEditPage( FirebaseProduct(title: title, id: id, description: description, price: price) )),
+                        builder: (context) => FirebaseEditPage( Product(title: title, id: id, description: description, price: price) )),
                   );
               },
               color: Theme.of(context).primaryColor,
@@ -37,8 +37,7 @@ class FirebaseListItem extends StatelessWidget {
             IconButton(
               icon: Icon(Icons.delete),
               onPressed: () {
-                //Provider.of<Products>(context, listen: false).deleteProduct(id);
-                MyApp.firebaseHttpService.deleteProducts(FirebaseProduct(title: title, id: id, description: description, price: price)).then((_) {
+                MyApp.firebaseHttpService.deleteProducts(Product(title: title, id: id, description: description, price: price)).then((_) {
                   Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) => FirebaseListPage(
                             title: 'Smeup Flutter - Firebase CRUD')));

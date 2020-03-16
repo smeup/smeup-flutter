@@ -1,6 +1,6 @@
 
 import 'package:smeup_flutter/main.dart';
-import 'package:smeup_flutter/models/firebaseProduct.dart';
+import 'package:smeup_flutter/models/product.dart';
 import 'package:http/http.dart' as http;
 
 class HttpProductsResponse {
@@ -22,21 +22,21 @@ class FirebaseHttpService {
     });
   }
 
-  Future<HttpProductsResponse> postProducts(FirebaseProduct product) async {
+  Future<HttpProductsResponse> postProducts(Product product) async {
     String url = MyApp.smeupSettings.firebaseUrl + 'products.json';
-    return http.post(url, body: FirebaseProduct.toJson(product)).then((http.Response response) {
+    return http.post(url, body: Product.toJson(product)).then((http.Response response) {
       return HttpProductsResponse(response.body, response.statusCode != 200); 
     });
   }
 
-  Future<HttpProductsResponse> patchProducts(FirebaseProduct product) async {
+  Future<HttpProductsResponse> patchProducts(Product product) async {
     String url = MyApp.smeupSettings.firebaseUrl + 'products/${product.id}.json';
-    return http.patch(url, body: FirebaseProduct.toJson(product)).then((http.Response response) {
+    return http.patch(url, body: Product.toJson(product)).then((http.Response response) {
       return HttpProductsResponse(response.body, response.statusCode != 200); 
     });
   }
 
-  Future<HttpProductsResponse> deleteProducts(FirebaseProduct product) async {
+  Future<HttpProductsResponse> deleteProducts(Product product) async {
     String url = MyApp.smeupSettings.firebaseUrl + 'products/${product.id}.json';
     return http.delete(url).then((http.Response response) {
       return HttpProductsResponse(response.body, response.statusCode != 200); 
