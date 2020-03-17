@@ -11,6 +11,7 @@ import 'package:smeup_flutter/services/smeupSoundNotificationsService.dart';
 import 'homePage.dart';
 import 'models/smeupSettings.dart';
 import 'services/smeupHttpService.dart';
+import 'package:connectivity/connectivity.dart';
 
 Future<void> main() async {
   // Fetch the available cameras before initializing the app.
@@ -66,6 +67,15 @@ class MyApp extends StatelessWidget {
   static final fbCloudDb = FirebaseDatabase.instance.reference();
   static final fsCloudDb = Firestore.instance;
 
+  static Future<bool> isOnline() async {
+    var connectivityResult = await (Connectivity().checkConnectivity());
+    switch (connectivityResult) {
+      case ConnectivityResult.none:
+        return false;
+      default:
+        return true;
+    }
+  }
   
   // This widget is the root of your application.
   @override

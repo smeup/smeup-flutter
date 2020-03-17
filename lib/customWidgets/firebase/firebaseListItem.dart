@@ -43,13 +43,15 @@ class FirebaseListItem extends StatelessWidget {
                   MyApp.firebaseHttpService.deleteProductsSync(Product(title: title, id: id, description: description, price: price)).then((_) {
                   Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) => FirebaseListPage(
-                            title: 'Firebase ONLINE')));
+                            title: 'Firebase ONLINE',
+                            isFireStore: isFireStore,)));
                   });
                 } else {
                   MyApp.firebaseHttpService.deleteProducts(Product(title: title, id: id, description: description, price: price)).then((_) {
                   Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) => FirebaseListPage(
-                            title: 'Firebase OFFLINE')));
+                            title: 'Firebase OFFLINE',
+                            isFireStore: isFireStore,)));
                   });
                 }
                 

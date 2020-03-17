@@ -58,12 +58,22 @@ class FirebaseHttpService {
 
   /// OFFLINE METHODS
   /// 
+
+  Future<Source> getSource() async {
+    bool onValue = await MyApp.isOnline();
+      if(onValue)
+        return Source.server; 
+      else  
+        return Source.cache;
+  } 
+  
+
   Future<HttpProductsResponseSync> getProductsSync() async {
     QuerySnapshot snapshot;
     try {
       snapshot = await MyApp.fsCloudDb
         .collection("products")
-        .getDocuments();  
+        .getDocuments(source: await getSource());  
     } catch (e) {
       print(e);
     }
@@ -73,7 +83,9 @@ class FirebaseHttpService {
   Future<HttpProductsResponseSync> postProductsSync(Product product) async {
 
     try {
-      await MyApp.fsCloudDb
+      // do not await because it's going to hang!!!
+      // await MyApp.fsCloudDb
+      MyApp.fsCloudDb
           .collection('products')
           .add(product.toMap());  
     } catch (e) {
@@ -86,7 +98,7 @@ class FirebaseHttpService {
   Future<HttpProductsResponseSync> deleteProductsSync(Product product) async {
 
     try {
-      await MyApp.fsCloudDb
+      MyApp.fsCloudDb
           .collection('products')
           .document(product.id)
           .delete();  
@@ -100,7 +112,7 @@ class FirebaseHttpService {
   Future<HttpProductsResponseSync> patchProductsSync(Product product) async {
 
     try {
-      await MyApp.fsCloudDb
+      MyApp.fsCloudDb
         .collection('products')
         .document(product.id)
         .updateData(product.toMap());  
