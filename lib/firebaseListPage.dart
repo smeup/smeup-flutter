@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:smeup_flutter/customWidgets/firebase/firebaseOnlineStatus.dart';
 import 'package:smeup_flutter/homePage.dart';
 import 'package:smeup_flutter/main.dart';
 import 'package:smeup_flutter/models/product.dart';
@@ -77,7 +78,8 @@ class _UserProductsScreen extends State<FirebaseListPage> {
       drawer: HomePage(),
       body: Padding(
         padding: EdgeInsets.all(8),
-        child: ListView.builder(
+        child: FirebaseOnlineStatus(
+          ListView.builder(
           itemCount: productsData.length,
           itemBuilder: (_, i) => Column(
                 children: [
@@ -88,9 +90,10 @@ class _UserProductsScreen extends State<FirebaseListPage> {
                     productsData[i].price,
                     widget.isFireStore
                   ),
-                  Divider(),
+                  Divider()
                 ],
               ),
+          ),
         ),
       ),
     );

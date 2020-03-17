@@ -73,7 +73,7 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Edit Product'),
+        title: Text('Edit Product ${widget.isFireStore ? 'OFFLINE' : 'ONLINE'}'),
         actions: <Widget>[
           IconButton(
             icon: Icon(Icons.save),
