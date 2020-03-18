@@ -14,19 +14,17 @@ import 'services/smeupHttpService.dart';
 import 'package:connectivity/connectivity.dart';
 
 Future<void> main() async {
+
+  WidgetsFlutterBinding.ensureInitialized();
+
   // Fetch the available cameras before initializing the app.
   try {
-    WidgetsFlutterBinding.ensureInitialized();
-    
     MyApp.cameras = await availableCameras();
-
-    MyApp.fsCloudDb.settings(persistenceEnabled: true).timeout(MyApp.smeupSettings.connectionTimeout);
-
-    
-
   } on CameraException catch (e) {
     print('Error: ${e.code}\nError Message: ${e.description}');
   }
+
+  MyApp.fsCloudDb.settings(persistenceEnabled: true).timeout(MyApp.smeupSettings.connectionTimeout);
 
   runApp(MyApp());
 }

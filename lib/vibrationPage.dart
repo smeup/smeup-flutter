@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:smeup_flutter/customWidgets/wrappers/myBottomBar.dart';
 import 'package:smeup_flutter/customWidgets/wrappers/myLabel.dart';
 import 'package:smeup_flutter/models/smeupBottomBarSettings.dart';
-import 'package:vibrate/vibrate.dart';
 import 'customWidgets/wrappers/myButton.dart';
 import 'package:vibration/vibration.dart';
 
@@ -33,14 +32,7 @@ class _VibrationPageState extends State<VibrationPage> {
       _canVibrate = true;
     }
 
-    // Vibrate with pauses between each vibration
-    final Iterable<Duration> pauses = [
-        const Duration(milliseconds: 500),
-        const Duration(milliseconds: 1000),
-        const Duration(milliseconds: 500),
-    ];
-    // vibrate - sleep 0.5s - vibrate - sleep 1s - vibrate - sleep 0.5s - vibrate
-    Vibrate.vibrateWithPauses(pauses);
+    Vibration.vibrate(duration: 1000, repeat: 3);
 
   }
 
@@ -63,7 +55,6 @@ class _VibrationPageState extends State<VibrationPage> {
             _canVibrate
             ? 
             MyButton('Vibrate',  () { 
-             Vibrate.vibrate();
              Vibration.vibrate();
             })     
             : MyLabel("Phone Cannot Vibrate", 18),  

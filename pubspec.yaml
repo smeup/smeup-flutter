@@ -26,12 +26,12 @@ dependencies:
   camera: ^0.5.7+3
   path_provider: ^1.6.5
   video_player: ^0.10.0
+  flutter_ffmpeg: ^0.2.10   # Note: minsdk 24. Remove this package to makes the app works on Samsung Galaxy S6
   
   # sensors (Accelerometer and Gyroscope)
   sensors: ^0.4.1+7
   
   # vibration
-  vibrate: ^0.0.4
   vibration: ^1.2.3
 
   # barcode scanner  
@@ -41,7 +41,7 @@ dependencies:
 
   # audio recorder
   flutter_sound: ^2.0.4
-  flutter_ffmpeg: ^0.2.10
+  
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   intl: ^0.16.1
@@ -53,7 +53,7 @@ dependencies:
   flutter_offline: "^0.3.0"
   #file_cache: ^0.1.7
   async: ^2.4.0
-  #dio: ^3.0.8
+  
 
   # Notifications
   soundpool: ^0.6.1
