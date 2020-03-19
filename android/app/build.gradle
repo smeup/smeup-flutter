@@ -42,7 +42,7 @@ android {
         // tony: changed the minSdkVersion from 23 to 24 because of flutter_ffmpeg package (used in the camera widget to store the recording)
         //       otherwise it could be 23 which is good to makes the app runs on Samsung Galaxy S6 but the camera won't work properly
         // todo: look for a similar package which can work also with SDK 23
-        minSdkVersion 24 //23
+        minSdkVersion 23 //24
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName

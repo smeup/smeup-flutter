@@ -26,7 +26,12 @@ dependencies:
   camera: ^0.5.7+3
   path_provider: ^1.6.5
   video_player: ^0.10.0
-  flutter_ffmpeg: ^0.2.10   # Note: minsdk 24. Remove this package to makes the app works on Samsung Galaxy S6
+  # flutter_ffmpeg: ^0.2.10   # Note: minsdk 24. Remove this package to makes the app works on Samsung Galaxy S6
+  flutter_ffmpeg: # use LTS version instead which has minsdk 16
+    git:
+      url: git://github.com/tanersener/flutter-ffmpeg.git
+      ref: v0.2.6
+      path: packages/flutter_ffmpeg_audio_lts
   
   # sensors (Accelerometer and Gyroscope)
   sensors: ^0.4.1+7

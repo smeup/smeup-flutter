@@ -170,10 +170,12 @@ packages:
   flutter_ffmpeg:
     dependency: "direct main"
     description:
-      name: flutter_ffmpeg
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.2.10"
+      path: "packages/flutter_ffmpeg_audio_lts"
+      ref: "v0.2.6"
+      resolved-ref: "8e8b52e334c3d63643906f8294667c4b3a505b11"
+      url: "git://github.com/tanersener/flutter-ffmpeg.git"
+    source: git
+    version: "0.2.6"
   flutter_offline:
     dependency: "direct main"
     description:
