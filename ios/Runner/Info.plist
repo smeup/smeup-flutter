@@ -40,23 +40,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
-
-	<!-- tony: added the following 2 keys because of the camera -->
-	<key>NSCameraUsageDescription</key>
-	<string>Can I use the camera please?</string>
-	<key>NSMicrophoneUsageDescription</key>
-	<string>Can I use the mic please?</string>
-
-	<!-- tony: added the following 2 keys because of the audio recorder -->
-	<key>NSMicrophoneUsageDescription</key>
-	<string>This sample uses the microphone to record your speech and convert it to text.</string>
-	<key>UIBackgroundModes</key>
-	<array>
-		<string>audio</string>
-	</array>
-
-	
-	
 	<false/>
 </dict>
 </plist>
