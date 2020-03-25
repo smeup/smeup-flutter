@@ -75,7 +75,8 @@ class _UserProductsScreen extends State<FirebaseListPage> {
           ),
         ],
       ),
-      drawer: HomePage(),
+      // TODO: check stack
+      //drawer: HomePage(),
       body: Padding(
         padding: EdgeInsets.all(8),
         child: FirebaseOnlineStatus(

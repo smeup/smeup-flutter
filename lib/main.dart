@@ -24,7 +24,7 @@ Future<void> main() async {
     print('Error: ${e.code}\nError Message: ${e.description}');
   }
 
-  MyApp.fsCloudDb.settings(persistenceEnabled: true).timeout(MyApp.smeupSettings.connectionTimeout);
+  await MyApp.fsCloudDb.settings(persistenceEnabled: true).timeout(MyApp.smeupSettings.connectionTimeout);
 
   runApp(MyApp());
 }
