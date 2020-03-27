@@ -81,7 +81,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Smeup - Flutter',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.red,
       ),
       home: HomePage(title: 'Smeup Flutter - Home Page'),
     );

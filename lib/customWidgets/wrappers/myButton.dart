@@ -12,7 +12,7 @@ class MyButton extends StatelessWidget {
       width: double.infinity,
       margin: EdgeInsets.only(top: 5),
       child: RaisedButton(
-        color: Colors.blue,
+        color: Theme.of(context).primaryColor,
         textColor: Colors.white,
         child: Text(buttonText),
         onPressed: buttonClickHandler,

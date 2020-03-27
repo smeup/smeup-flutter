@@ -21,6 +21,10 @@ class FirebaseListPage extends StatefulWidget {
 }
 
 class _UserProductsScreen extends State<FirebaseListPage> {
+
+  void _callBack() {
+    setState(() {});
+  }
   
   @override
   Widget build(BuildContext context) {
@@ -66,11 +70,16 @@ class _UserProductsScreen extends State<FirebaseListPage> {
           IconButton(
             icon: const Icon(Icons.add),
             onPressed: () {
-              Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => FirebaseEditPage( new Product(id: null, title: null, description: null, price: 0), widget.isFireStore) ),
-              );
+              // Navigator.push(
+              //       context,
+              //       MaterialPageRoute(
+              //           builder: (context) => 
+              //           FirebaseEditPage( new Product(id: null, title: null, description: null, price: 0), widget.isFireStore) ),
+              // );
+              // example of modal
+              showModalBottomSheet(context: context, builder: (_) { 
+                return FirebaseEditPage( new Product(id: null, title: null, description: null, price: 0), widget.isFireStore, _callBack);
+              });
             },
           ),
         ],
@@ -89,7 +98,8 @@ class _UserProductsScreen extends State<FirebaseListPage> {
                     productsData[i].title,
                     productsData[i].description,
                     productsData[i].price,
-                    widget.isFireStore
+                    widget.isFireStore,
+                    _callBack
                   ),
                   Divider()
                 ],

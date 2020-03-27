@@ -7,7 +7,8 @@ class FirebaseEditPage extends StatefulWidget {
 
   final Product _initValues; 
   final bool isFireStore;
-  FirebaseEditPage(this._initValues, this.isFireStore);
+  final Function callBack;
+  FirebaseEditPage(this._initValues, this.isFireStore, this.callBack);
 
   @override
   _FirebaseEditPageState createState() => _FirebaseEditPageState();
@@ -47,26 +48,30 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
     _form.currentState.save();
 
     if(widget.isFireStore) {
+      HttpProductsResponseSync response;
       if (_editedProduct.id != null) {
-        HttpProductsResponseSync response = await MyApp.firebaseHttpService.patchProductsSync(_editedProduct);
-        if(!response.isError)
-          Navigator.of(context).pop();
+        response = await MyApp.firebaseHttpService.patchProductsSync(_editedProduct);
       } else {
-        HttpProductsResponseSync response = await MyApp.firebaseHttpService.postProductsSync(_editedProduct);
-        if(!response.isError)
-          Navigator.of(context).pop();
+        response = await MyApp.firebaseHttpService.postProductsSync(_editedProduct);
+      }
+      if(response != null && !response.isError) {
+        Navigator.of(context).pop();
+        widget.callBack();
       }
     } else {
+      HttpProductsResponse response;
       if (_editedProduct.id != null) {
-        HttpProductsResponse response = await MyApp.firebaseHttpService.patchProducts(_editedProduct);
-        if(!response.isError)
-          Navigator.of(context).pop();
+        response = await MyApp.firebaseHttpService.patchProducts(_editedProduct);
       } else {
-        HttpProductsResponse response = await MyApp.firebaseHttpService.postProducts(_editedProduct);
-        if(!response.isError)
-          Navigator.of(context).pop();
+        response = await MyApp.firebaseHttpService.postProducts(_editedProduct);
+      }
+      if(response != null && !response.isError) {
+        Navigator.of(context).pop();
+        widget.callBack();
       }
     }
+
+    
   }
 
   @override
@@ -113,7 +118,7 @@ class _FirebaseEditPageState extends State<FirebaseEditPage> {
                 initialValue: widget._initValues.price.toString(),
                 decoration: InputDecoration(labelText: 'Price'),
                 textInputAction: TextInputAction.next,
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.numberWithOptions(decimal: true),
                 focusNode: _priceFocusNode,
                 onFieldSubmitted: (_) {
                   FocusScope.of(context).requestFocus(_descriptionFocusNode);

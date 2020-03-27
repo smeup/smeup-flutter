@@ -201,7 +201,7 @@ class _MyCameraState extends State<MyCamera>
       children: <Widget>[
         IconButton(
           icon: const Icon(Icons.camera_alt),
-          color: Colors.blue,
+          color: Theme.of(context).primaryColor,
           onPressed: controller != null &&
                   controller.value.isInitialized &&
                   !controller.value.isRecordingVideo
@@ -210,7 +210,7 @@ class _MyCameraState extends State<MyCamera>
         ),
         IconButton(
           icon: const Icon(Icons.videocam),
-          color: Colors.blue,
+          color: Theme.of(context).primaryColor,
           onPressed: controller != null &&
                   controller.value.isInitialized &&
                   !controller.value.isRecordingVideo

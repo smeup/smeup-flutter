@@ -11,8 +11,8 @@ class FirebaseListItem extends StatelessWidget {
   final String description;
   final double price;
   final bool isFireStore;
-
-  FirebaseListItem(this.id, this.title, this.description, this.price, this.isFireStore);
+  final Function callBack;
+  FirebaseListItem(this.id, this.title, this.description, this.price, this.isFireStore, this.callBack);
 
   @override
   Widget build(BuildContext context) {
@@ -27,11 +27,15 @@ class FirebaseListItem extends StatelessWidget {
               icon: Icon(Icons.edit),
               onPressed: () {
 
-                Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => FirebaseEditPage( Product(title: title, id: id, description: description, price: price), isFireStore )),
-                    ); 
+                // Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: (context) => FirebaseEditPage( Product(title: title, id: id, description: description, price: price), isFireStore, null )),
+                //     ); 
+                showModalBottomSheet(context: context, builder: (_) { 
+                  return FirebaseEditPage( Product(title: title, id: id, description: description, price: price), isFireStore, callBack );
+                });
+
               },
               color: Theme.of(context).primaryColor,
             ),
@@ -41,17 +45,19 @@ class FirebaseListItem extends StatelessWidget {
                 
                 if(isFireStore) {
                   MyApp.firebaseHttpService.deleteProductsSync(Product(title: title, id: id, description: description, price: price)).then((_) {
-                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) => FirebaseListPage(
                             title: 'Firebase ONLINE',
                             isFireStore: isFireStore,)));
+                    callBack();
                   });
                 } else {
                   MyApp.firebaseHttpService.deleteProducts(Product(title: title, id: id, description: description, price: price)).then((_) {
-                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    Navigator.pushReplacement(context, MaterialPageRoute(
                         builder: (context) => FirebaseListPage(
                             title: 'Firebase OFFLINE',
                             isFireStore: isFireStore,)));
+                    callBack();
                   });
                 }
                 
