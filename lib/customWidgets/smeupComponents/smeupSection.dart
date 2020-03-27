@@ -73,10 +73,10 @@ class _SmeupSectionState extends State<SmeupSection> {
       });
 
       if(smeupJsonSection.layout == "column" ){
-        children = Column(children: components);
+        children = SingleChildScrollView(child: Column(children: components), scrollDirection: Axis.horizontal, );
       }
       else {
-        children = Row(children: components);
+        children = SingleChildScrollView(child: Row(children: components), scrollDirection: Axis.vertical, );
       }
     }
 

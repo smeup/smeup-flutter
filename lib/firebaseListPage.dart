@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:smeup_flutter/customWidgets/firebase/firebaseOnlineStatus.dart';
-import 'package:smeup_flutter/homePage.dart';
+//import 'package:smeup_flutter/homePage.dart';
 import 'package:smeup_flutter/main.dart';
 import 'package:smeup_flutter/models/product.dart';
 import 'package:smeup_flutter/services/firebaseHttpService.dart';
@@ -75,7 +75,7 @@ class _UserProductsScreen extends State<FirebaseListPage> {
           ),
         ],
       ),
-      // TODO: check stack
+      // TODO: usefull
       //drawer: HomePage(),
       body: Padding(
         padding: EdgeInsets.all(8),

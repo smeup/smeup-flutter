@@ -27,9 +27,9 @@ class _HomePageState extends State<HomePage> {
           18,
         ),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
+      body: SingleChildScrollView(
+                child: Column(
+          //mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
 
             MyCustomButton(

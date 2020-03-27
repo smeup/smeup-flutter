@@ -89,6 +89,10 @@ class _SmeupComponentState extends State<SmeupComponent> {
               if (response.isError)
                   children =  Text(response.data);
               else {
+
+                double kMinWidthOfLargeScreen = 400;
+                bool isScreenWide = MediaQuery.of(context).size.width >= kMinWidthOfLargeScreen;
+                
               
                 List<dynamic> smeupJsonForms = json.decode(response.data);
                 var forms = List<SmeupForm>();
@@ -98,12 +102,14 @@ class _SmeupComponentState extends State<SmeupComponent> {
                   forms.add(SmeupForm(smeupJsonForm));
                 });
                 
-                if(smeupJsonComponent.layout == "column" ){
-                  children = Column(children: forms);
-                }
-                else {
-                  children = Row(children: forms);
-                }
+                // if(smeupJsonComponent.layout == "column" ){
+                //   children = SingleChildScrollView(child: Column(children: forms), scrollDirection: Axis.horizontal);
+                // }
+                // else {
+                //   children = SingleChildScrollView(child: Row(children: forms), scrollDirection: Axis.vertical, );
+                // }
+
+                children = Flex(direction: isScreenWide ? Axis.horizontal: Axis.vertical, children: forms, );
               }
             });
             break;                                    

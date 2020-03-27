@@ -35,7 +35,7 @@ class _UtilitiesPageState extends State<UtilitiesPage> {
           18,
         ),
       ),
-      body: Center(
+      body: SingleChildScrollView(
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[

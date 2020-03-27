@@ -89,8 +89,8 @@ class _SmeupFormsPageState extends State<SmeupFormsPage> {
             18,
           ),
         ),
-        body: Center(
-          child: Column(
+        body: SingleChildScrollView(
+                    child: Column(
             //mainAxisAlignment: MainAxisAlignment.start,
             children: widgetsList,
           ),

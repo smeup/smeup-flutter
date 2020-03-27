@@ -82,10 +82,10 @@ class _SmeupFormState extends State<SmeupForm> {
     });
 
     if(smeupJsonForm.layout == "column" ){
-      children = Column(children: sections);
+      children = SingleChildScrollView(child: Column(children: sections), scrollDirection: Axis.horizontal, );
     }
     else {
-      children = Row(children: sections);
+      children = SingleChildScrollView(child: Row(children: sections), scrollDirection: Axis.vertical, );
     }
     
     return SmeupWidgetBuilderResponse(smeupJsonForm, children);
