@@ -38,7 +38,7 @@ class _SmeupFormsPageState extends State<SmeupFormsPage> {
       builder: (BuildContext context,
           AsyncSnapshot<SmeupWidgetBuilderResponse> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Center(child: Text('Please wait its loading...'));
+          return Center(child: const Text('Please wait its loading...'));
         } else {
           if (snapshot.hasError)
             return Center(child: Text('Error: ${snapshot.error}'));
@@ -68,19 +68,33 @@ class _SmeupFormsPageState extends State<SmeupFormsPage> {
         return SmeupWidgetBuilderResponse(
             null, new Text('the list of the scripts is empty: $listName'));
 
-      List<Widget> widgetsList = List<Widget>();
-      widgetsList.add(MyLabel('Select the SmeUp component to test', 18));
+      // List<Widget> widgetsList = List<Widget>();
+      // widgetsList.add(const MyLabel('Select the SmeUp component to test', 18));
 
-      smeupJsonForms.formsList.forEach((f) {
-        widgetsList.add(
-          MyButton(f, () {
+      // smeupJsonForms.formsList.forEach((f) {
+      //   widgetsList.add(
+      //     MyButton(f, () {
+      //       Navigator.push(
+      //         context,
+      //         MaterialPageRoute(builder: (context) => SmeupFormPage(f)),
+      //       );
+      //     }),
+      //   );
+      // });
+
+      List<Widget> widgetsList = [
+        MyLabel('Select the SmeUp component to test', 18),
+        ...smeupJsonForms.formsList.map( (f) {
+            return MyButton(f, () {
             Navigator.push(
               context,
               MaterialPageRoute(builder: (context) => SmeupFormPage(f)),
             );
-          }),
-        );
-      });
+          });
+        })
+      ];
+
+      
 
       Widget children = Scaffold(
         appBar: AppBar(

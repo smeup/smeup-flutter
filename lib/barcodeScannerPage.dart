@@ -43,7 +43,7 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
 
     return new Scaffold(
           appBar: new AppBar(
-            title: new Text('Scan Barcode'),
+            title: const Text('Scan Barcode'),
           ),
           body: new Center(
             child: new Column(
@@ -51,13 +51,13 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
                 new Container(
                   child: new RaisedButton(
                       onPressed: barcodeScanning,
-                      child: new Text("Capture image")),
+                      child: const Text("Capture image")),
                   padding: const EdgeInsets.all(8.0),
                 ),
                 new Padding(
                   padding: const EdgeInsets.all(8.0),
                 ),
-                new Text("Barcode Number after Scan : " + barcode),
+                Text("Barcode Number after Scan : " + barcode),
                 // displayImage(),
               ],
             ),
@@ -69,7 +69,7 @@ class _BarcodeScannerPageState extends State<BarcodeScannerPage> {
       height: 300.0,
       width: 400.0,
       child: galleryFile == null
-          ? new Text('Sorry nothing to display')
+          ? const Text('Sorry nothing to display')
           : new Image.file(galleryFile),
     );
   }

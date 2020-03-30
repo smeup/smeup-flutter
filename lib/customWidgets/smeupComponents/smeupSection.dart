@@ -22,7 +22,7 @@ class _SmeupSectionState extends State<SmeupSection> {
       builder: (BuildContext context, AsyncSnapshot<SmeupWidgetBuilderResponse> snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
           
-          return Center(child: Text('Please wait its loading...'));
+          return Center(child: const Text('Please wait its loading...'));
 
         } else {
 

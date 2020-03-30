@@ -57,7 +57,7 @@ class _VibrationPageState extends State<VibrationPage> {
             MyButton('Vibrate',  () { 
              Vibration.vibrate();
             })     
-            : MyLabel("Phone Cannot Vibrate", 18),  
+            : const MyLabel("Phone Cannot Vibrate", 18),  
             
            
           ],

@@ -29,7 +29,7 @@ Future<void> main() async {
   runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   // grafanaUrl:
   //  prod: "http://172.16.2.142:3000/api/datasources/proxy/1/"
   //  debug "http://10.0.2.2:8087/api/datasources/proxy/1/"
@@ -74,8 +74,13 @@ class MyApp extends StatelessWidget {
         return true;
     }
   }
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
   
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -86,4 +91,24 @@ class MyApp extends StatelessWidget {
       home: HomePage(title: 'Smeup Flutter - Home Page'),
     );
   }
+
+/// App states management
+@override
+  void initState() {
+    WidgetsBinding.instance.addObserver(this);
+    super.initState();
+  }
+  
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    print(state);
+    super.didChangeAppLifecycleState(state);
+  }
+
+  @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    super.dispose();
+  }
+
 }

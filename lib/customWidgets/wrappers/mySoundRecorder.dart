@@ -277,7 +277,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
       mainAxisSize: MainAxisSize.max, // this will take space as minimum as posible(to center)
       children: <Widget>
       [
-        Text('Media'),
+        const Text('Media'),
         Container
           (
           margin: const EdgeInsets.all(0.0),
@@ -303,7 +303,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
                     (() {_media = radioBtn;});
                 },
                 ),
-              new Text('File'),
+              const Text('File'),
 
               Radio
                 (
@@ -315,7 +315,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
                     (() {_media = radioBtn;});
                 },
                 ),
-              new Text('Buffer'),
+              const Text('Buffer'),
 
               Radio
                 (
@@ -327,7 +327,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
                     (() {_media = radioBtn;});
                 },
                 ),
-              new Text('Asset'),
+              const Text('Asset'),
 
 
 
@@ -336,7 +336,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
           ),
         Divider(),
 
-        Text('Codec'),
+        const Text('Codec'),
   Container
   (
     height:105,
@@ -366,7 +366,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
                   groupValue: _codec,
                   onChanged: setCodec,
                   ),
-                Text('AAC'),
+                const Text('AAC'),
 
                 Radio
                   (
@@ -374,7 +374,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
                   groupValue: _codec,
                   onChanged: setCodec,
                   ),
-                Text('OGG/Opus'),
+                const Text('OGG/Opus'),
 
                 Radio
                   (
@@ -382,7 +382,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
                   groupValue: _codec,
                   onChanged: setCodec,
                   ),
-                Text('CAF/Opus'),
+                const Text('CAF/Opus'),
               ],
               ),
             ),
@@ -401,7 +401,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
                 groupValue: _codec,
                 onChanged: setCodec,
                 ),
-              Text('MP3'),
+              const Text('MP3'),
 
               Radio
                 (
@@ -409,7 +409,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
                 groupValue: _codec,
                 onChanged: setCodec,
                 ),
-              Text('OGG/Vorbis'),
+              const Text('OGG/Vorbis'),
 
               Radio
                 (
@@ -417,7 +417,7 @@ class _MySoundsRecorderState extends State<MySoundsRecorder> {
                 groupValue: _codec,
                 onChanged: setCodec,
                 ),
-              Text('PCM'),
+              const Text('PCM'),
             ],
             ),
           ),

@@ -39,7 +39,7 @@ class _UtilitiesPageState extends State<UtilitiesPage> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.start,
           children: <Widget>[
-            MyLabel('Select the utility to test', 18),
+            const MyLabel('Select the utility to test', 18),
 
             MyButton('Camera',  () { 
               Navigator.push(

@@ -23,19 +23,19 @@ class _MyBottomBarState extends State<MyBottomBar> {
     if(widget.barSettings.home)
       list.add( BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              title: Text('Home'),
+              title: const Text('Home'),
             ));
 
     if(widget.barSettings.settings)
       list.add( BottomNavigationBarItem(
               icon: Icon(Icons.settings),
-              title: Text('Settings'),
+              title: const Text('Settings'),
             ));
 
     if(widget.barSettings.refreshData)
       list.add( BottomNavigationBarItem(
               icon: Icon(Icons.refresh),
-              title: Text('RefreshData'),
+              title: const Text('RefreshData'),
             ));
 
     return Container(

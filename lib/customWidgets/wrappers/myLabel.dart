@@ -4,7 +4,7 @@ class MyLabel extends StatelessWidget {
   final String text;
   final double fontSize;
 
-  MyLabel(this.text, this.fontSize);
+  const MyLabel(this.text, this.fontSize);
 
   @override
   Widget build(BuildContext context) {
