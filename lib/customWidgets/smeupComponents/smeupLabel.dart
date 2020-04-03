@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/models/smeupJsonComponent.dart';
-import 'package:smeup_flutter/models/smeupWidgetBuilderResponse.dart';
+
+import '../../models/smeupJsonComponent.dart';
+import '../../models/smeupWidgetBuilderResponse.dart';
 
 class SmeupLabel extends StatefulWidget {
   final SmeupJsonComponent smeupJsonComponent;

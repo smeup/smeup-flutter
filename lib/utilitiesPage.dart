@@ -1,17 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/applicationInteractions.dart';
-import 'package:smeup_flutter/barcodeScannerPage.dart';
-import 'package:smeup_flutter/cameraPage.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/myBottomBar.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/myLabel.dart';
-import 'package:smeup_flutter/main.dart';
-import 'package:smeup_flutter/models/smeupBottomBarSettings.dart';
-import 'package:smeup_flutter/offlinePage.dart';
-import 'package:smeup_flutter/sensorPage.dart';
-import 'package:smeup_flutter/soundsRecorderPage.dart';
-import 'package:smeup_flutter/vibrationPage.dart';
 
+import 'applicationInteractions.dart';
+import 'barcodeScannerPage.dart';
+import 'cameraPage.dart';
+import 'customWidgets/wrappers/myBottomBar.dart';
+import 'customWidgets/wrappers/myLabel.dart';
 import 'customWidgets/wrappers/myButton.dart';
+import 'main.dart';
+import 'models/smeupBottomBarSettings.dart';
+import 'offlinePage.dart';
+import 'sensorPage.dart';
+import 'soundsRecorderPage.dart';
+import 'vibrationPage.dart';
+
 
 class UtilitiesPage extends StatefulWidget {
   UtilitiesPage({Key key, this.title}) : super(key: key);

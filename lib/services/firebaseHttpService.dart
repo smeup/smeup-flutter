@@ -1,7 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:smeup_flutter/main.dart';
-import 'package:smeup_flutter/models/product.dart';
 import 'package:http/http.dart' as http;
+
+import '../main.dart';
+import '../models/product.dart';
 
 class HttpProductsResponse {
   String data;

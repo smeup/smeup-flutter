@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/main.dart';
+
 import 'models/product.dart';
-import 'package:smeup_flutter/services/firebaseHttpService.dart';
+import 'services/firebaseHttpService.dart';
+import 'main.dart';
 
 class FirebaseEditPage extends StatefulWidget {
 

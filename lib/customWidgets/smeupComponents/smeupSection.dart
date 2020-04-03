@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/smeupComponents/smeupComponent.dart';
-import 'package:smeup_flutter/models/smeupJsonSection.dart';
-import 'package:smeup_flutter/models/smeupWidgetBuilderResponse.dart';
+
+import '../../customWidgets/smeupComponents/smeupComponent.dart';
+import '../../models/smeupJsonSection.dart';
+import '../../models/smeupWidgetBuilderResponse.dart';
 
 class SmeupSection extends StatefulWidget {
   

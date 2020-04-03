@@ -1,11 +1,10 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/smeupComponents/smeupSection.dart';
-import 'package:smeup_flutter/models/smeupJsonForm.dart';
-import 'package:smeup_flutter/models/smeupWidgetBuilderResponse.dart';
-import 'package:smeup_flutter/services/smeupHttpService.dart';
 
+import '../../customWidgets/smeupComponents/smeupSection.dart';
+import '../../models/smeupJsonForm.dart';
+import '../../models/smeupWidgetBuilderResponse.dart';
+import '../../services/smeupHttpService.dart';
 import '../../main.dart';
 
 class SmeupForm extends StatefulWidget {

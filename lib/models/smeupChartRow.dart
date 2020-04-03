@@ -1,4 +1,4 @@
-import 'package:smeup_flutter/models/smeupChartColumn.dart';
+import '../models/smeupChartColumn.dart';
 
 class SmeupChartRow {
   List<dynamic> cells;

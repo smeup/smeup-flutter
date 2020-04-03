@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:charts_flutter/flutter.dart' as charts;
 
-import 'package:smeup_flutter/main.dart';
-import 'package:smeup_flutter/models/smeupChartDatasource.dart';
-import 'package:smeup_flutter/models/smeupJsonComponent.dart';
-import 'package:smeup_flutter/models/smeupWidgetBuilderResponse.dart';
-import 'package:smeup_flutter/services/smeupHttpService.dart';
+import '../../main.dart';
+import '../../models/smeupChartDatasource.dart';
+import '../../models/smeupJsonComponent.dart';
+import '../../models/smeupWidgetBuilderResponse.dart';
+import '../../services/smeupHttpService.dart';
 
 class SmeupChart extends StatefulWidget {
   final SmeupJsonComponent smeupJsonComponent;

@@ -1,8 +1,7 @@
-
 import 'dart:convert';
 
-import 'package:smeup_flutter/models/smeupJson.dart';
-import 'package:smeup_flutter/models/smeupJsonSection.dart';
+import '../models/smeupJson.dart';
+import '../models/smeupJsonSection.dart';
 
 class SmeupJsonForm extends SmeupJson {
   String type;

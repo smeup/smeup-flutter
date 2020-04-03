@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/firebaseEditPage.dart';
-import 'package:smeup_flutter/models/product.dart';
 
+import '../../firebaseEditPage.dart';
+import '../../models/product.dart';
 import '../../firebaseListPage.dart';
 import '../../main.dart';
 

@@ -1,12 +1,12 @@
-import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/myBottomBar.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/myLabel.dart';
-import 'package:smeup_flutter/models/smeupBottomBarSettings.dart';
-
 import 'dart:async';
 import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_appavailability/flutter_appavailability.dart';
+
+import 'customWidgets/wrappers/myBottomBar.dart';
+import 'customWidgets/wrappers/myLabel.dart';
+import 'models/smeupBottomBarSettings.dart';
 
 class ApplicationInteractionsPage extends StatefulWidget {
   ApplicationInteractionsPage({Key key, this.title}) : super(key: key);

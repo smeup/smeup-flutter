@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/myCustomButton.dart';
-import 'package:smeup_flutter/smeupFormsPage.dart';
-import 'package:smeup_flutter/utilitiesPage.dart';
+import 'package:smeup_flutter/customWidgets/wrappers/mainDrawer.dart';
 
 import 'customWidgets/wrappers/myBottomBar.dart';
 import 'customWidgets/wrappers/myLabel.dart';
+import 'customWidgets/wrappers/myCustomButton.dart';
 import 'firebaseListPage.dart';
 import 'models/smeupBottomBarSettings.dart';
+import 'smeupFormsPage.dart';
+import 'utilitiesPage.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -27,6 +28,7 @@ class _HomePageState extends State<HomePage> {
           18,
         ),
       ),
+      drawer: MainDrawer(),
       body: SingleChildScrollView(
                 child: Column(
           //mainAxisAlignment: MainAxisAlignment.start,

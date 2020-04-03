@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
-import 'package:smeup_flutter/models/smeupJson.dart';
+
+import '../models/smeupJson.dart';
 
 class SmeupWidgetBuilderResponse {
   SmeupJson parentState;

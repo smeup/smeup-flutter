@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/mySoundRecorder.dart';
+
+import 'customWidgets/wrappers/mySoundRecorder.dart';
 
 class SoundsRecorderPage extends StatefulWidget {
   SoundsRecorderPage({Key key, this.title}) : super(key: key);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/models/smeupBottomBarSettings.dart';
+
+import '../../models/smeupBottomBarSettings.dart';
 
 class MyBottomBar extends StatefulWidget {
   final SmeupBottomBarSettings barSettings;

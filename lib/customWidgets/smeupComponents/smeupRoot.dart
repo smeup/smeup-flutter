@@ -1,9 +1,10 @@
 
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/smeupComponents/smeupForm.dart';
-import 'package:smeup_flutter/models/smeupJsonForm.dart';
-import 'package:smeup_flutter/models/smeupJsonRoot.dart';
-import 'package:smeup_flutter/models/smeupWidgetBuilderResponse.dart';
+
+import '../../customWidgets/smeupComponents/smeupForm.dart';
+import '../../models/smeupJsonForm.dart';
+import '../../models/smeupJsonRoot.dart';
+import '../../models/smeupWidgetBuilderResponse.dart';
 import '../../main.dart';
 
 class SmeupRoot extends StatefulWidget {

@@ -1,9 +1,8 @@
-
 import 'dart:convert';
 
-import 'package:smeup_flutter/models/smeupChartColumn.dart';
-import 'package:smeup_flutter/models/smeupChartRow.dart';
-import 'package:smeup_flutter/models/smeupJsonComponent.dart';
+import '../models/smeupChartColumn.dart';
+import '../models/smeupChartRow.dart';
+import '../models/smeupJsonComponent.dart';
 
 
 class SmeupChartDatasource {

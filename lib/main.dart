@@ -1,13 +1,12 @@
+import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_database/firebase_database.dart';
-//import 'package:file_cache/file_cache.dart';
-import 'package:flutter/material.dart';
-import 'package:smeup_flutter/models/offLineMode.dart';
-import 'package:smeup_flutter/services/firebaseHttpService.dart';
-import 'package:smeup_flutter/services/smeupCacheService.dart';
-import 'package:smeup_flutter/services/smeupSoundNotificationsService.dart';
 
+import 'models/offLineMode.dart';
+import 'services/firebaseHttpService.dart';
+import 'services/smeupCacheService.dart';
+import 'services/smeupSoundNotificationsService.dart';
 import 'homePage.dart';
 import 'models/smeupSettings.dart';
 import 'services/smeupHttpService.dart';

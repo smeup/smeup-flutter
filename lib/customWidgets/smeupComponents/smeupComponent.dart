@@ -1,15 +1,15 @@
 import 'dart:async';
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/smeupComponents/smeupChart.dart';
-import 'package:smeup_flutter/customWidgets/smeupComponents/smeupForm.dart';
-import 'package:smeup_flutter/customWidgets/smeupComponents/smeupLabel.dart';
-import 'package:smeup_flutter/customWidgets/smeupComponents/smeupSection.dart';
-import 'package:smeup_flutter/main.dart';
-import 'package:smeup_flutter/models/smeupJsonForm.dart';
-import 'package:smeup_flutter/models/smeupWidgetBuilderResponse.dart';
-import 'package:smeup_flutter/models/smeupJsonComponent.dart';
+
+import '../../customWidgets/smeupComponents/smeupChart.dart';
+import '../../customWidgets/smeupComponents/smeupForm.dart';
+import '../../customWidgets/smeupComponents/smeupLabel.dart';
+import '../../customWidgets/smeupComponents/smeupSection.dart';
+import '../../main.dart';
+import '../../models/smeupJsonForm.dart';
+import '../../models/smeupWidgetBuilderResponse.dart';
+import '../../models/smeupJsonComponent.dart';
 
 
 class SmeupComponent extends StatefulWidget {

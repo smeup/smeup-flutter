@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/myBottomBar.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/myLabel.dart';
-import 'package:smeup_flutter/models/smeupBottomBarSettings.dart';
+
+import 'customWidgets/wrappers/myBottomBar.dart';
+import 'customWidgets/wrappers/myLabel.dart';
 import 'customWidgets/wrappers/myButton.dart';
+import 'models/smeupBottomBarSettings.dart';
 import 'package:vibration/vibration.dart';
 
 class VibrationPage extends StatefulWidget {

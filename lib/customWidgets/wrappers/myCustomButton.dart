@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customPainters/trianglePainter.dart';
+
+import '../../customPainters/trianglePainter.dart';
 
 class MyRaisedButton extends RaisedButton {
 

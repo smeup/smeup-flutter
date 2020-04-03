@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:smeup_flutter/models/smeupJson.dart';
+import '../models/smeupJson.dart';
 
 class SmeupJsonForms extends SmeupJson {
   String fun;

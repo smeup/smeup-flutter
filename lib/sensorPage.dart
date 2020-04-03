@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/mySensor.dart';
+
+import 'customWidgets/wrappers/mySensor.dart';
 
 class SensorPage extends StatefulWidget {
   SensorPage({Key key, this.title}) : super(key: key);

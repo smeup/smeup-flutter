@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
-import 'package:smeup_flutter/main.dart';
+
+import '../main.dart';
 
 enum HttpResponseType { json, influxDB }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/wrappers/myCamera.dart';
+
+import 'customWidgets/wrappers/myCamera.dart';
 
 class CameraPage extends StatefulWidget {
   CameraPage({Key key, this.title}) : super(key: key);

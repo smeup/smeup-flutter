@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:smeup_flutter/customWidgets/smeupComponents/smeupRoot.dart';
 
+import 'customWidgets/smeupComponents/smeupRoot.dart';
 import 'customWidgets/wrappers/myBottomBar.dart';
 import 'customWidgets/wrappers/myLabel.dart';
 import 'models/smeupBottomBarSettings.dart';

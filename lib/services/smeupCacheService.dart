@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:async/async.dart';
-import 'package:smeup_flutter/models/offLineMode.dart';
+
+import '../models/offLineMode.dart';
 
 class SmeupCacheService {
   OfflineModes _offLineMode;

@@ -1,6 +1,5 @@
-
-import 'package:smeup_flutter/models/smeupJson.dart';
-import 'package:smeup_flutter/models/smeupJsonComponent.dart';
+import '../models/smeupJson.dart';
+import '../models/smeupJsonComponent.dart';
 
 class SmeupJsonSection extends SmeupJson {
 
